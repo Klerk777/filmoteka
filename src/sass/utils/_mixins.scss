@@ -97,7 +97,7 @@
   $small: 320px;
   $mob: 480px;
   $tab: 768px;
-  $desk: 1200px;
+  $desk: 1280px;
 
   @if $type == 'small' {
     @media screen and (min-width: $small) {
