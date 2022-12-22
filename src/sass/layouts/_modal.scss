@@ -111,7 +111,7 @@
 .modal__value {
 
     &--uppercase {
-        @include fonts(inherit, inherit, inherit, false, uppercase);
+        text-transform: uppercase;;
     }
 
     &--accent {
