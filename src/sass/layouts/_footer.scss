@@ -1,1 +1,56 @@
 
+.footer {
+    background-color: $highlightColor;
+display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 32px;
+        padding-right: 32px;
+
+    @include fonts(400,14,16);
+    @include mq (mob){
+        gap: 0;
+    }
+    @include mq(tab){
+        @include fonts(400, 16, 19);
+    }
+   
+}
+
+.footer__btn {
+    text-decoration: underline;
+    cursor: pointer;
+    color: $footerTextColor;
+    
+    &:hover {
+        color: $accentColor;
+    }
+}
+
+
+.footer__icon {
+    animation: heartwork 1400ms cubic-bezier(.25, .1, .25, 1.5) infinite;
+
+}
+
+@keyframes heartwork {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.4);
+    }
+
+    45% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
