@@ -26,18 +26,18 @@
 
     overflow-y: scroll;
 
-    @include mobile {
+    @include mq($mob) {
         box-sizing: border-box;
         width: 450px;
     }
 
-    @include tablet {
+    @include mq($tab) {
         width: 704px;
         height: auto;
         padding: 40px 72px 40px 36px;
     }
 
-    @include desktop {
+    @include mq($desk) {
         width: 806px;
         padding: 40px 12px;
     }
@@ -48,12 +48,12 @@
 }
 
 .modal__wrap {
-    @include tablet {
+    @include mq($tab) {
         display: flex;
         gap: 68px;
     }
 
-    @include desktop {
+    @include mq($desk) {
         gap: 16px;
     }
 }
@@ -64,24 +64,24 @@
     width: 240px;
     height: 357px;
 
-    @include tablet {
+    @include mq($tab) {
         margin: 0;
         width: 264px;
         height: 373.55px;
     }
 
-    @include desktop {
+    @include mq($desk) {
         width: 375px;
         height: 478px;
     }
 }
 
 .modal__info {
-    @include tablet {
+    @include mq($tab) {
         width: 264px;
     }
 
-    @include desktop {
+    @include mq($desk) {
         width: 391px;
     }
 }
@@ -90,7 +90,7 @@
     margin-bottom: 12px;
     @include fonts(500, 12, 23, false, uppercase);
 
-    @include desktop {
+    @include mq($desk) {
         @include fonts(500, 30, 35);
     }
 }
@@ -153,7 +153,7 @@
     gap: 20px;
     justify-content: center;
 
-    @include tablet {
+    @include mq($tab) {
         justify-content: start;
         gap: 15px;
     }
@@ -168,11 +168,11 @@
     border-radius: 5px;
     @include transition(background-color, color);
 
-    @include tablet {
+    @include mq($tab) {
         width: 125.03px;
     }
 
-    @include desktop {
+    @include mq($desk) {
         width: 136px;
     }
 

@@ -1,4 +1,4 @@
-.close {
+.close-btn {
     position: absolute;
     top: 8px;
     right: 8px;
@@ -8,11 +8,11 @@
     border: none;
 }
 
-.close__icon {
+.close-btn__icon {
     @include transition (transform);
 
-    .close:hover &,
-    .close:focus & {
+    .close-btn:hover &,
+    .close-btn:focus & {
         transform: scale(1.3);
     }
 }
