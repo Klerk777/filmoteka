@@ -1,0 +1,18 @@
+.close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    background-color: inherit;
+    border: none;
+}
+
+.close__icon {
+    @include transition (transform);
+
+    .close:hover &,
+    .close:focus & {
+        transform: scale(1.3);
+    }
+}

@@ -1,0 +1,185 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $backdropColor;
+    opacity: 1;
+    @include transition(opacity);
+
+    &.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 552px;
+    padding: 48px 20px 20px;
+    transform: translate(-50%, -50%);
+    background-color: $whiteColor;
+
+    overflow-y: scroll;
+
+    @include mobile {
+        box-sizing: border-box;
+        width: 450px;
+    }
+
+    @include tablet {
+        width: 704px;
+        height: auto;
+        padding: 40px 72px 40px 36px;
+    }
+
+    @include desktop {
+        width: 806px;
+        padding: 40px 12px;
+    }
+
+    .backdrop.is-hidden & {
+        transform: translate(-50%, -100%);
+    }
+}
+
+.modal__wrap {
+    @include tablet {
+        display: flex;
+        gap: 68px;
+    }
+
+    @include desktop {
+        gap: 16px;
+    }
+}
+
+.modal__picture {
+    margin: 0 auto 20px;
+    border-radius: 5px;
+    width: 240px;
+    height: 357px;
+
+    @include tablet {
+        margin: 0;
+        width: 264px;
+        height: 373.55px;
+    }
+
+    @include desktop {
+        width: 375px;
+        height: 478px;
+    }
+}
+
+.modal__info {
+    @include tablet {
+        width: 264px;
+    }
+
+    @include desktop {
+        width: 391px;
+    }
+}
+
+.modal__title {
+    margin-bottom: 12px;
+    @include fonts(500, 12, 23, false, uppercase);
+
+    @include desktop {
+        @include fonts(500, 30, 35);
+    }
+}
+
+.modal__statistic {
+    width: 100%;
+    margin-bottom: 12px;
+    @include fonts(500, 12, 16);
+
+    border-spacing: 0 8px;
+}
+
+.modal__type {
+    width: 108px;
+    color: $modalTypesColor;
+}
+
+.modal__value {
+
+    &--uppercase {
+        @include fonts($tt: uppercase);
+    }
+
+    &--accent {
+        padding: 1px 10px;
+        color: $whiteColor;
+        background-color: $accentColor;
+        border-radius: 5px;
+    }
+
+    &--highlight {
+        padding: 1px 4px;
+        background-color: $highlightColor;
+        border-radius: 5px;
+    }
+}
+
+.modal__numbers {
+    @include fonts(500, 12, 16);
+    padding: 1px 10px;
+    border-radius: 5px;
+    color: $whiteColor;
+    background-color: $accentColor;
+}
+
+.modal__about {
+    margin-bottom: 8px;
+    @include fonts(500, 12, 16, false, uppercase);
+}
+
+.modal__description {
+    width: 100%;
+    margin-bottom: 20px;
+    @include fonts(500, 12, 20);
+}
+
+.modal__buttons {
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+
+    @include tablet {
+        justify-content: start;
+        gap: 15px;
+    }
+}
+
+.modal__button {
+    width: 110px;
+    height: 44px;
+    padding: 6px;
+    @include fonts(500, 12, 16, false, uppercase);
+    border: 1px solid $blackColor;
+    border-radius: 5px;
+    @include transition(background-color, color);
+
+    @include tablet {
+        width: 125.03px;
+    }
+
+    @include desktop {
+        width: 136px;
+    }
+
+    &:hover,
+    &:focus {
+        border-color: $accentColor;
+        background-color: $accentColor;
+        color: $whiteColor;
+    }
+}
