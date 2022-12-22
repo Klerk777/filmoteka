@@ -169,7 +169,7 @@
     @include transition(background-color, color);
 
     @include mq($tab) {
-        width: 125.03px;
+        width: 125px;
     }
 
     @include mq($desk) {
