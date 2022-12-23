@@ -19,10 +19,12 @@
 
   @if $sproperty {
     @if $tproperty {
-      transition: $property $duration $timing-function, $sproperty $duration $timing-function,
+      transition: $property $duration $timing-function,
+        $sproperty $duration $timing-function,
         $tproperty $duration $timing-function;
     } @else {
-      transition: $property $duration $timing-function, $sproperty $duration $timing-function;
+      transition: $property $duration $timing-function,
+        $sproperty $duration $timing-function;
     }
   } @else {
     transition: $property $duration $timing-function;
@@ -146,7 +148,9 @@
   }
 
   @if $type == 'retina' {
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
       @content;
     }
   }
