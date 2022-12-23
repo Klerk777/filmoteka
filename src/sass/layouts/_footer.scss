@@ -1,24 +1,31 @@
 
 .footer {
     background-color: $highlightColor;
-display: flex;
-    justify-content: center;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 10px;
+
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 32px;
         padding-right: 32px;
 
+        text-align: center;
     @include fonts(400,14,16);
     @include mq (mob){
-        gap: 0;
+        display: flex;
+                justify-content: center;
+                align-items: baseline;
+                               
     }
     @include mq(tab){
         @include fonts(400, 16, 19);
     }
    
+}
+.footer__align{
+    margin-top: 10px;
+    @include mq (mob) {
+            margin-top:0;
+        }
+
 }
 
 .footer__btn {
