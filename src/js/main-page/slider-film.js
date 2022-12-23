@@ -27,6 +27,5 @@ function renderSliderFilms(results) {
     `;
     })
     .join('');
-  console.log(markup);
   refs.sliderContainer.insertAdjacentHTML('beforeend', markup);
 }
