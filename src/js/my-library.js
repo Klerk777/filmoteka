@@ -38,7 +38,6 @@ async function status() {
 }
 
 async function onWatched() {
-  console.log('watch');
   activeBtn(refs.btnWatched);
   inactiveBtn(refs.btnQueue);
   const watches = await getWatchedByUserId(user.uid);
@@ -48,7 +47,6 @@ async function onWatched() {
 async function onQueue() {
   activeBtn(refs.btnQueue);
   inactiveBtn(refs.btnWatched);
-  console.log('queue');
   const queues = await getQueueByUserId(user.uid);
   appendResultsMarkup(Object.values(queues).map(queue => queue['film']));
 }
