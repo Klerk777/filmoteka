@@ -11,8 +11,6 @@ renderHomepage();
 
 export function renderHomepage() {
   filmotekaApi.fetchInTrendFilmWithGenres().then(appendResultsMarkup);
-  
-   
 }
 
 function appendResultsMarkup(results) {

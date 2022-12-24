@@ -9,7 +9,6 @@
 }
 
 .menu {
-
     display: flex;
     justify-content: space-between;
     margin-bottom: 54px;
@@ -30,19 +29,28 @@ color: $whiteColor;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: $whiteColor;
 
-    @include transition (animation);
+    @include transition (color);
     
     &:hover,
     &:focus {
+        color: $accentColor;
+    }
+}
+
+.header__icon {
+    @include transition (animation);
+
+    .logo:hover &,
+    .logo:focus & {
         animation: jello 800ms both;
     }
 }
 
-
 @keyframes jello {
     0% {
-        transform: rscale(1);
+        transform: scale(1);
     }
 
     25% {
@@ -155,8 +163,6 @@ color: $whiteColor;
         margin-left: 8px;
         font-style: normal;
         @include fonts(500, 30, 35);
-        
-        color: $whiteColor;
     }
         .header__container{
             min-height: 216px;
