@@ -28,7 +28,7 @@ async function status() {
   user = await currentUser();
   if (currentUrl.includes('my-library')) {
     if (!user) {
-      window.location.href = '../auth/signin.html';
+      window.location.href = './signin.html';
     }
 
     onWatched();
