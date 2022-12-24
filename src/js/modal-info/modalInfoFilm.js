@@ -1,13 +1,9 @@
 import FilmotekaApi from '../api-service/filmoteka-api';
-// import {trailerYouTube, onYouTubeIframeAPIReady} from './modalTrailer';
 import { modalInfoCreat } from './modal-creat-element';
+import { trailer } from './youtubePlayer';
 
-// const key = '1UbTnTS3rjY'
-// const loc = window.location.host
 const infoFilmApi = new FilmotekaApi();
 let ID_FILMS = '';
-
-let URL_POSTEER = 'https://image.tmdb.org/t/p/';
 
 const slideTrack = document.querySelector('.slide-track');
 const backdrop = document.querySelector('.backdrop');
@@ -23,37 +19,45 @@ const langTrailer = {
   en: 'en-US',
 };
 
-// let URL_IMG_POSTER = 'https://image.tmdb.org/t/p/'
-function modalFunction(id) {
-  infoFilmApi.fetchInfoFilm(id).then(creatRender);
+// let URL_IMG_POSTER = 'https://image.tmdb.org/t/p/'a
+async function modalFunction(id) {
+  await infoFilmApi.fetchInfoFilm(id).then(creatRender);
 }
 
 async function openModal(e) {
-  modalWrap.innerHTML = '';
   if (e.target.nodeName !== 'IMG') {
     return;
   }
-  ID_FILMS = e.target.dataset.id;
-  await modalFunction(ID_FILMS);
-  creatTrailerFilm(ID_FILMS);
-
+  modalWrap.innerHTML = '';
   backdrop.classList.add('is-open');
+  ID_FILMS = e.target.dataset.id;
+  modalFunction(ID_FILMS);
+
+  // console.log(e.target);
 }
 
-function creatRender(e) {
-  const res = modalInfoCreat(e, ID_FILMS);
-  console.log(res);
+async function creatRender(e) {
+  const trailerKey = await creatTrailerFilm(ID_FILMS);
+  const res = modalInfoCreat(e, ID_FILMS, trailerKey);
+  // console.log(res);
+
   modalWrap.insertAdjacentHTML('beforeend', res);
+  creatTrailerFilm(ID_FILMS);
 }
 
 async function creatTrailerFilm(id) {
-  //   const uaTrailer = await infoFilmApi.fetchTrailreFilm(id, langTrailer.ua)
-  //   const enTrailer = await infoFilmApi.fetchTrailreFilm(id, langTrailer.en)
-  //   console.log(enTrailer.results[0].key)
-  //   let key = enTrailer.results[0].key
-  //     const  res = await trailer(key);
-  //     console.log(res)
-  //     trailerWrap.innerHTML = res;
+  const enTrailer = await infoFilmApi.fetchTrailreFilm(id, langTrailer.en);
+  console.log(enTrailer.results);
+
+  if (enTrailer.results.length == 0) return;
+  return enTrailer.results[0].key;
+
+  // console.log(enTrailer.results[0].key)
+
+  // let key = enTrailer.results[0].key
+  //   const  res =  trailer(key);
+  //   console.log(res)
+  // trailerWrap.innerHTML = res;
   //   // const ruTrailer = await infoFilmApi.fetchTrailreFilm(id, langTrailer.ru)
   // //   console.log(uaTrailer)
   //   console.log(enTrailer)

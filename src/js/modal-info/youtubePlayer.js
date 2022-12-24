@@ -6,7 +6,7 @@ export function trailer(id) {
 width="350"
 height="175"
 src="https://www.youtube.com/embed/${id}?autoplay=1"
-title="YouTube video player"
+title="GO-IT  #4"
 frameborder="0"
 allowfullscreen
 ></iframe>`;
