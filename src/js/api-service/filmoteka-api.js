@@ -60,6 +60,15 @@ export default class FilmotekaApi {
     const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${this.searchQuery}&page=${this.page}&include_adult=false`;
     return this.globalFetch(url);
   }
+   fetchSearchTotalFilm() {
+    const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${this.searchQuery}&page=${this.page}&include_adult=false`;
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        this.incrementPage();
+        return data;
+      });
+  }
 
   // fetchInfoFilm() {
   //   const movie_id = 1031653;

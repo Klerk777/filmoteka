@@ -1,5 +1,5 @@
 import FilmotekaApi from '../api-service/filmoteka-api';
-
+import filmsCardTpl from '../../templates/card-films.hbs';
 
 
 
@@ -16,23 +16,5 @@ export function renderHomepage() {
 }
 
 function appendResultsMarkup(results) {
-  
-    const markup = results.map(({poster_path, title, genres, release_date, id}) => {
-        return `<li class="card__item">
-  
-        <div class="thumb">
-            <img  src="https://image.tmdb.org/t/p/w500${poster_path}" alt=""width="100%" data-id="${id}"
-         onerror="this.onerror=null;this.src='https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-';" />
-       
-              
-        </div>  
-             <h2 class="card__title">${title}</h2>
-             <p class="card__text">
-            <span>${genres.map(obj =>` ${obj.name}`)}</span> | <span>${release_date}</span>
-            </p>
-    </li>`
-    }).join('');
-    // console.log(markup);
-    refs.containerList.insertAdjacentHTML('beforeend', markup);
- 
+  refs.containerList.innerHTML = filmsCardTpl(results);
 }
