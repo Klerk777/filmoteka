@@ -24,15 +24,45 @@
 .menu__link {
 @include fonts(500, 12, 14, false, uppercase);
 color: $whiteColor;
-
-    
 }
 
 .logo {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include transition (animation);
+    
+    &:hover,
+    &:focus {
+        animation: jello 800ms both;
+    }
 }
+
+
+@keyframes jello {
+    0% {
+        transform: rscale(1);
+    }
+
+    25% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.1);
+    }
+
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 
 .logo__name {
     display: none;
@@ -51,15 +81,18 @@ color: $whiteColor;
     border: transparent;
     border-bottom: 1px solid $whiteColor;
     color: $whiteColor;
+    @include transition(border-bottom, );
 
     &::placeholder {
         color: $whiteColor;
     }
-}
 
-.search-field:hover,
-.search-field:focus {
-    border-bottom: 1px solid $accentColor;
+    &:hover,
+    &:focus,
+    &:active {
+        border-bottom: 1px solid $accentColor;
+        outline: none;
+        }
 }
 
 .header-bg {
@@ -114,8 +147,10 @@ color: $whiteColor;
     background: $accentColor;
     border: none;
 }
- @include mq(tab) {
+
+@include mq(tab) {
     .logo__name {
+        position: relative;
         display: block;
         margin-left: 8px;
         font-style: normal;
