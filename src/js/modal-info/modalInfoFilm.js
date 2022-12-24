@@ -1,5 +1,4 @@
 import FilmotekaApi from '../api-service/filmoteka-api';
-// import {trailerYouTube, onYouTubeIframeAPIReady} from './modalTrailer';
 import { modalInfoCreat } from './modal-creat-element';
 import { trailer } from './youtubePlayer';
 
