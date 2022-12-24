@@ -52,16 +52,6 @@ async function signIn(email, password) {
   }
 }
 
-function signOut() {
-  signOut(auth)
-    .then(() => {
-      // Sign-out successful.
-    })
-    .catch(error => {
-      // An error happened.
-    });
-}
-
 function checkAuthStatus() {
   return new Promise((resolve, reject) => {
     try {
