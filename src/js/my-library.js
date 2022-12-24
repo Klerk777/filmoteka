@@ -3,6 +3,7 @@ import {
   getWatchedByUserId,
   getQueueByUserId,
 } from './api-service/firebase-api-database';
+import filmsCardTpl from '../templates/card-films.hbs';
 
 const currentUrl = window.location.href;
 
@@ -11,6 +12,7 @@ let user = null;
 const refs = {
   btnWatched: document.querySelector('#btn__watched'),
   btnQueue: document.querySelector('#btn__queue'),
+  containerList: document.querySelector('.js-card'),
 };
 
 status();
@@ -40,6 +42,7 @@ async function onWatched() {
   activeBtn(refs.btnWatched);
   inactiveBtn(refs.btnQueue);
   const watches = await getWatchedByUserId(user.uid);
+  appendResultsMarkup(Object.values(watches).map(watch => watch['film']));
 }
 
 async function onQueue() {
@@ -47,6 +50,7 @@ async function onQueue() {
   inactiveBtn(refs.btnWatched);
   console.log('queue');
   const queues = await getQueueByUserId(user.uid);
+  appendResultsMarkup(Object.values(queues).map(queue => queue['film']));
 }
 
 function inactiveBtn(bt) {
@@ -55,4 +59,8 @@ function inactiveBtn(bt) {
 
 function activeBtn(bt) {
   bt.classList.add('btn__library--active');
+}
+
+function appendResultsMarkup(results) {
+  refs.containerList.innerHTML = filmsCardTpl(results);
 }
