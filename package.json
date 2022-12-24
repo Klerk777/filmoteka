@@ -18,8 +18,10 @@
     "url": "https://github.com/Klerk777/filmoteka/issues"
   },
   "dependencies": {
+    "firebase": "^9.15.0",
     "handlebars": "^4.7.7",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "notiflix": "^3.2.5"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
@@ -27,6 +29,7 @@
     "parcel-reporter-clean-dist": "^1.0.4",
     "parcel-transformer-hbs": "^1.0.4",
     "posthtml-include": "^1.7.4"
+    "process": "^0.11.10"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }
