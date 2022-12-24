@@ -1,50 +1,46 @@
-.films__container {
-   
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-}
+
 
 .card__list {
     padding-top: 20px;
     padding-bottom: 40px;
-    gap: 20px;
+   
 
     
-@media screen and (min-width:768px) {
+@include mq(small){
     padding-bottom: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 32px;
+    gap: 20px;
     
     }
-    @media screen and (min-width: 1280px) {
-        gap: 16px;
-    }
+   @include mq(tab){
+    gap: 32px;
+   }
+   @include mq(tab-only){
+    flex-basis: calc((100% - 32px) / 3);
+   }
 
        
 }     
-
 
 .card__item {
     cursor: pointer;
     transform: scaleX(1);
     transition: transform 250ms linear;
 
- @media screen and (max-width: 768px) {
+@include mq(mob) {
     max-width: 280px;
     max-height: 443px;
-    margin-left: auto;
-    margin-right: auto;
-    &:not(:last-child){
-        margin-bottom: 20px;
-    }
+   
  }
- @media screen and (min-width: 768px) {
+@include mq(tab) {
     max-width: 336px;
     max-height: 494px;
+ }
+ @include mq(desk){
+    max-width: 396px;
+    max-height: 634px;
  }
 
  }
@@ -55,15 +51,15 @@
 }
 
 .card__item img {
-    display: block;
-    max-width: 100%;
-    height: auto;
     margin-bottom: 10px;
     border-radius: 5px;
-    max-height: 402px;
+    height: 402px;
     
-    @media screen and (min-width: 768px) {
+   @include mq(tab) {
         height: 455px;
+    }
+    @include mq(desk){
+        height: 574px;
     }
        
  }
