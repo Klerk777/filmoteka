@@ -1,6 +1,3 @@
-// import * as dotenv from 'dotenv';
-// const { API_KEY } = process.env;
-
 const API_KEY = '431ab85139813dba3796c445694ce723';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
