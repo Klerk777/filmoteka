@@ -28,7 +28,7 @@ function appendResultsMarkup(results) {
         </div>  
              <h2 class="card__title">${title}</h2>
              <p class="card__text">
-            <span>${genres.map(obj => obj.name).join(' ')}</span> | <span>${release_date}</span>
+            <span>${genres.map(obj =>` ${obj.name}`)}</span> | <span>${release_date}</span>
             </p>
     </li>`
     }).join('');
