@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import { currentUser } from './api-service/firebase-api-auth';
 import {
   getWatchedByUserId,
@@ -30,7 +29,6 @@ async function status() {
   if (currentUrl.includes('my-library')) {
     if (!user) {
       window.location.href = '../auth/signin.html';
-      return;
     }
 
     onWatched();
