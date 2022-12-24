@@ -1,8 +1,10 @@
 import { signIn } from '../api-service/firebase-api-auth';
-import formAuth from './form-auth';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+const refs = {
+  authForm: document.querySelector('.auth-form'),
+};
 
-formAuth.authForm.addEventListener('submit', onLogin);
+refs.authForm.addEventListener('submit', onLogin);
 
 async function onLogin(e) {
   e.preventDefault();
@@ -15,7 +17,7 @@ async function onLogin(e) {
     return;
   }
 
-  window.location.href = '../../my-library.html';
+  window.location.href = './my-library.html';
 
   //
 }

@@ -67,11 +67,35 @@ export default class FilmotekaApi {
       });
   }
 
-  fetchInfoFilm() {
-    const movie_id = 1031653;
+  // fetchInfoFilm() {
+  //   const movie_id = 1031653;
+  //   const url = ` https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=en-US`;
+  //   return this.globalFetch(url);
+  // }
+
+  fetchInfoFilm(movie_id) {
+
     const url = ` https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=en-US`;
-    return this.globalFetch(url);
-  }
+    return fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            return data;
+            // console.log(data);
+        })
+}
+
+
+fetchTrailreFilm(movie_id, lang) {
+  const url = ` https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${API_KEY}&language=${lang}`;
+  return fetch(url)
+      .then(response => response.json())
+      .then(data => {
+          return data;
+          // console.log(data);
+      })
+}
+
+
 
   incrementPage() {
     this.page += 1;

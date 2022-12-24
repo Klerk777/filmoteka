@@ -17,5 +17,4 @@ export function renderHomepage() {
 
 function appendResultsMarkup(results) {
   refs.containerList.innerHTML = filmsCardTpl(results);
-  
 }
