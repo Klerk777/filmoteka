@@ -1,9 +1,10 @@
-export function modalInfoCreat(results, id) {
+export function modalInfoCreat(results, id, keyPlayer=false) {
   let URL_POSTEER = 'https://image.tmdb.org/t/p/';
   const imgResize = {
     tabMob: 'w342',
     desk: 'w500',
   };
+
 
   const {
     title,
@@ -15,6 +16,17 @@ export function modalInfoCreat(results, id) {
     overview,
     poster_path,
   } = results;
+
+  const player = !keyPlayer ? '' :
+`  <iframe
+  class="trailer"
+width="350"
+height="175"
+src="https://www.youtube.com/embed/${keyPlayer}?autoplay=1&amp;loop=1"
+title="GO-IT  #4"
+frameborder="0"
+allowfullscreen
+></iframe> `
 
   return `<picture>
   <source src="${
@@ -57,15 +69,7 @@ export function modalInfoCreat(results, id) {
   <p class="modal__description">${overview}</p>
   
   <div id="player" class="player">
-  <iframe
-  class="trailer"
-width="350"
-height="175"
-src="https://www.youtube.com/embed/LgZ2MDuJvhc?autoplay=1"
-title="YouTube video player"
-frameborder="0"
-allowfullscreen
-></iframe>
+${player}
   </div>
   
   <ul class="modal__buttons">
