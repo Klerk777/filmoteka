@@ -13,6 +13,7 @@ const refs = {
     containerWarningResults: document.querySelector('.js-search-results'),
     
 }
+
 renderTrendy();
 renderHomepage();
 
@@ -22,7 +23,7 @@ refs.searchForm.addEventListener('submit', onSearch);
 
  function onSearch(evt) {
     evt.preventDefault();
-    loadingSpiner();
+     loadingSpiner();
     clearHomePage();
      if (evt.currentTarget.query.value === '') {
          renderHomepage();

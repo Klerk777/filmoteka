@@ -10,7 +10,7 @@ const filmotekaApi = new FilmotekaApi();
 renderHomepage();
 
 export function renderHomepage() {
-  filmotekaApi.fetchInTrendFilmWithGenres().then(appendResultsMarkup);   
+  filmotekaApi.fetchInTrendFilmWithGenres().then(appendResultsMarkup);
 }
 
 function appendResultsMarkup(results) {
