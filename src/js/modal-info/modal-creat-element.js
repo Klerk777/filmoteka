@@ -69,8 +69,8 @@ allowfullscreen
   </div>
   
   <ul class="modal__buttons">
-            <li><button class="modal__button" data-id="${id}">Add to watched</button></li>
-            <li><button class="modal__button" data-id="${id}">Add to queue</button></li>
+            <li><button type="button" class="modal__button js-btn-watched" data-id="${id}">Add to watched</button></li>
+            <li><button type="button" class="modal__button js-btn-queue" data-id="${id}">Add to queue</button></li>
           </ul>
   `;
   // loadPlayer();

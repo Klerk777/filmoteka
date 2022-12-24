@@ -38,7 +38,6 @@ async function openModal(e) {
   creatTrailerFilm(ID_FILMS);
 
   backdrop.classList.add('is-open');
-  console.log(e.target);
 }
 
 function creatRender(e) {
