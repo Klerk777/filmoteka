@@ -15,7 +15,7 @@ async function onLogin(e) {
     return;
   }
 
-  window.location.href = '../../my-library.html';
+  window.location.href = './my-library.html';
 
   //
 }
