@@ -6,6 +6,7 @@ import {
   signOut,
   setPersistence,
   browserSessionPersistence,
+  onAuthStateChanged,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -24,19 +25,20 @@ const app = initializeApp(firebaseConfig);
 // gives us an auth instance
 const auth = getAuth(app);
 
-function createNewUser(email, password) {
-  return createUserWithEmailAndPassword(auth, email, password)
-    .then(userCredential => {
-      // Signed in
-      const user = userCredential.user;
-      console.log(user);
-      // ...
-    })
-    .catch(error => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-    });
+async function createNewUser(email, password) {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    // Signed in
+    const user = userCredential.user;
+    return user;
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  }
 }
 
 async function signIn(email, password) {
@@ -60,16 +62,21 @@ function signOut() {
     });
 }
 
-function currentUser() {
-  return auth.currentUser;
+function checkAuthStatus() {
+  return new Promise((resolve, reject) => {
+    try {
+      onAuthStateChanged(auth, user => {
+        resolve(user);
+      });
+    } catch {
+      reject('api failed');
+    }
+  });
 }
 
-function checkedAuth() {
-  if (currentUser()) {
-    return true;
-  }
-
-  return false;
+async function currentUser() {
+  const user = await checkAuthStatus();
+  return user;
 }
 
-export { signIn, createNewUser, signOut, currentUser, checkedAuth };
+export { signIn, createNewUser, signOut, currentUser };

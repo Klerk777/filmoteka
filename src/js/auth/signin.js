@@ -1,4 +1,4 @@
-import { signIn, checkedAuth } from '../api-service/firebase-api-auth';
+import { signIn } from '../api-service/firebase-api-auth';
 import formAuth from './form-auth';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
