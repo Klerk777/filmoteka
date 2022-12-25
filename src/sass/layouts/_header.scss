@@ -73,7 +73,20 @@
 }
 
 .logo__name {
+  position: relative;
   display: none;
+}
+
+.logo__santa {
+  display: block;
+  position: absolute;
+  left: 110px;
+  top: -6px;
+  width: 30px;
+  height: 30px;
+  z-index: 999;
+  background: url(../images/santa.png) no-repeat center center;
+  background-size: contain;
 }
 
 .search-form {
@@ -175,7 +188,10 @@
   }
   @include mq(retina) {
     .header-bg {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
         url(../images/header/tablet/abstract-background-1@2x.jpg);
     }
   }
@@ -196,7 +212,10 @@
   }
   @include mq(retina) {
     .header-bg {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
         url(../images/header/desktop/abstract-background-1@2x.jpg);
     }
   }
@@ -250,7 +269,7 @@
   left: 5px;
 }
 
-.header-bg-lib{
+.header-bg-lib {
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(../images/header/mobile/Library-header-1-mob.jpg);
 
@@ -265,15 +284,16 @@
       url(../images/header/mobile/Library-header-1@2x-mob.jpg);
   }
 }
-@include mq(tab){
-.header-bg-lib {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(../images/header/tablet/Library-header-1-tab.jpg);
+@include mq(tab) {
+  .header-bg-lib {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/tablet/Library-header-1-tab.jpg);
 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}}
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
 
 @include mq(retina) {
   .header-bg-lib {
@@ -293,7 +313,10 @@
 
   @include mq(retina) {
     .header-bg-lib {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
         url(../images/header/desktop/Library-header-1@2x-desc.jpg);
     }
   }
@@ -304,5 +327,3 @@
     margin-left: auto;
   }
 }
-
-
