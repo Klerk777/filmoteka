@@ -4,14 +4,21 @@ import { modalInfoCreat } from './modal-creat-element';
 const infoFilmApi = new FilmotekaApi();
 let ID_FILMS = '';
 
-const slideTrack = document.querySelector('.slide-track');
 const backdrop = document.querySelector('.backdrop');
 const modalWrap = document.querySelector('.modal__wrap');
-const modalJsCard = document.querySelector('.js-card');
+const modalJsCard = document.querySelector('.card__list');
 const trailerWrap = document.querySelector('.player');
+
+let slideTrack = '';
+document.querySelector('.slide-track')
+  ? (slideTrack = document.querySelector('.slide-track'))
+  : (slideTrack = modalWrap);
 
 slideTrack.addEventListener('click', openModal);
 modalJsCard.addEventListener('click', openModal);
+
+const e = document.getElementsByClassName('slide-track');
+console.log(e);
 
 const langTrailer = {
   ua: 'uk-UA',
