@@ -29,14 +29,6 @@ function closeModal() {
 
 async function onBackdropHandler(e) {
   const filmId = e.target.dataset.id;
-  if (await checkFilmFromUser(filmId, getQueueByUserId)) {
-    Notify.info('The film is already at the top of the queue');
-    return;
-  }
-  if (await checkFilmFromUser(filmId, getWatchedByUserId)) {
-    Notify.info('The film is already at the top of the watched');
-    return;
-  }
   if (e.target.classList.contains('backdrop')) {
     closeModal();
   } else if (e.target.classList.contains('js-btn-watched')) {
