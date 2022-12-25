@@ -30,17 +30,19 @@
   transform: translate(-50%, -100%);
   @include transition(transform);
 
-  // overflow-y: scroll;
+  overflow-y: scroll;
 
   @include mq(mob) {
     box-sizing: border-box;
-    width: 450px;
+    width: 450px; // 
+
   }
 
   @include mq(tab) {
     width: 704px;
     height: auto;
     padding: 40px 72px 40px 36px;
+    overflow-y:hidden
   }
 
   @include mq(desk) {

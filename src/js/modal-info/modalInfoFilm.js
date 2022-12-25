@@ -23,13 +23,15 @@ const langTrailer = {
 async function modalFunction(id) {
   await infoFilmApi.fetchInfoFilm(id).then(creatRender);
 }
-
-async function openModal(e) {
+// openModal()
+ async function openModal(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
   }
   modalWrap.innerHTML = '';
   backdrop.classList.add('is-open');
+  document.body.classList.add('no-scroll');
+
   ID_FILMS = e.target.dataset.id;
   modalFunction(ID_FILMS);
 
@@ -39,50 +41,23 @@ async function openModal(e) {
 async function creatRender(e) {
   const trailerKey = await creatTrailerFilm(ID_FILMS);
   const res = modalInfoCreat(e, ID_FILMS, trailerKey);
-  // console.log(res);
-
   modalWrap.insertAdjacentHTML('beforeend', res);
-  creatTrailerFilm(ID_FILMS);
 }
 
 async function creatTrailerFilm(id) {
-  const enTrailer = await infoFilmApi.fetchTrailreFilm(id, langTrailer.en);
-  console.log(enTrailer.results);
+  const enTrailerUa = infoFilmApi.fetchTrailreFilm(id, langTrailer.ua);
+  const enTrailerEn = infoFilmApi.fetchTrailreFilm(id, langTrailer.en);
+  const dataTrailerLang = await Promise.all([enTrailerUa, enTrailerEn]);
+  const spaceArray = dataTrailerLang.map(e => e.results).join('').length;
 
-  if (enTrailer.results.length == 0) return;
-  return enTrailer.results[0].key;
+  if (!spaceArray) return;
 
-  // console.log(enTrailer.results[0].key)
+  const dataLang = [];
+  dataTrailerLang.forEach(({ results }) => {
+    if (results.length) dataLang.push(results);
+  });
 
-  // let key = enTrailer.results[0].key
-  //   const  res =  trailer(key);
-  //   console.log(res)
-  // trailerWrap.innerHTML = res;
-  //   // const ruTrailer = await infoFilmApi.fetchTrailreFilm(id, langTrailer.ru)
-  // //   console.log(uaTrailer)
-  //   console.log(enTrailer)
-  //   const  testArray = [uaTrailer, enTrailer]
-  // //   console.log(testArray)
-  //   const t =  testArray.map(e => e.results.length > 0)
-  // //   console.log(t)
-  //   const dataLanghKeyTrailer = []
-  //   const y =  testArray.forEach(e => {
-  //     if(!e.results.length) return;
-  //     const x =  {
-  // key: e.results[0].key,
-  // lang: e.results[0].iso_639_1,
-  //     }
-  //     console.log(x)
-  //     dataLanghKeyTrailer.push(x)
-  //   })
-  //   console.log(dataLanghKeyTrailer)
-  // if(dataLanghKeyTrailer)  {
-  //  const keyFind =  dataLanghKeyTrailer.find(e => e.lang === 'ua')
-  //  const key = keyFind ? keyFind.key : dataLanghKeyTrailer.key
-  // }
-  // await trailerYouTube()
-  //   window.onYouTubePlayerAPIReady = function () {
-  //    await onYouTubeIframeAPIReady(key);
-  //
-  // };
+  const dataUa = dataLang.find(e => e[0].iso_639_1 === 'uk');
+  console.log(dataUa);
+  return dataUa ? dataUa[0].key : dataLang[0][0].key;
 }

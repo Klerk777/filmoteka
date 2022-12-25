@@ -16,6 +16,7 @@ window.addEventListener('keydown', closeModalEsc);
 function closeModal() {
   refs.backdrop.classList.remove('is-open');
   window.removeEventListener('keydown', closeModal);
+  document.body.classList.remove('no-scroll')
 }
 
 function onBackdropHandler(e) {
