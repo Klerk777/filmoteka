@@ -6,6 +6,7 @@ const infoFilmApi = new FilmotekaApi();
 const refs = {
   backdrop: document.querySelector('.backdrop'),
   closeBtn: document.querySelector('[data-modal-close]'),
+  modalWrap: document.querySelector('.modal__wrap')
 };
 
 refs.backdrop.addEventListener('click', onBackdropHandler);
@@ -17,6 +18,7 @@ function closeModal() {
   refs.backdrop.classList.remove('is-open');
   window.removeEventListener('keydown', closeModal);
   document.body.classList.remove('no-scroll')
+  refs.modalWrap.innerHTML= ''
 }
 
 function onBackdropHandler(e) {

@@ -1,10 +1,9 @@
-export function modalInfoCreat(results, id, keyPlayer=false) {
+export function modalInfoCreat(results, id, keyPlayer = false) {
   let URL_POSTEER = 'https://image.tmdb.org/t/p/';
   const imgResize = {
     tabMob: 'w342',
     desk: 'w500',
   };
-
 
   const {
     title,
@@ -17,16 +16,20 @@ export function modalInfoCreat(results, id, keyPlayer=false) {
     poster_path,
   } = results;
 
-  const player = !keyPlayer ? '' :
-`  <iframe
+  const location = window.location.host;
+  console.log(location);
+
+  const player = !keyPlayer
+    ? ''
+    : `  <iframe
   class="trailer"
-width="350"
-height="175"
-src="https://www.youtube.com/embed/${keyPlayer}?autoplay=1&amp;loop=1"
+width="100%"
+height="175px"
+src="https://www.youtube.com/embed/${keyPlayer}?origin=${location}"
 title="GO-IT  #4"
 frameborder="0"
 allowfullscreen
-></iframe> `
+></iframe> `;
 
   return `<picture>
   <source src="${
@@ -68,7 +71,7 @@ allowfullscreen
   <p class="modal__about">About</p>
   <p class="modal__description">${overview}</p>
   
-  <div id="player" class="player">
+  <div id="player" class="modal__player">
 ${player}
   </div>
   
@@ -77,9 +80,4 @@ ${player}
             <li><button type="button" class="modal__button js-btn-queue" data-id="${id}">Add to queue</button></li>
           </ul>
   `;
-  // loadPlayer();
-  // window.onYouTubePlayerAPIReady = function () {
-  //   onYouTubeIframeAPIReady();
-
-  //           };
 }

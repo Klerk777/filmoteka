@@ -24,11 +24,13 @@ refs.searchForm.addEventListener('submit', onSearch);
  function onSearch(evt) {
     evt.preventDefault();
      loadingSpiner();
-    clearHomePage();
+     clearHomePage();
      if (evt.currentTarget.query.value === '') {
+        
          renderHomepage();
          Loading.remove();
-        refs.containerWarning.textContent = `Please write something ...`;
+         refs.containerWarningResults.textContent = ''; 
+         refs.containerWarning.textContent = `Please write something ...`;
         return;
     } else {
          refs.containerWarning.textContent = '';
@@ -47,10 +49,10 @@ refs.searchForm.addEventListener('submit', onSearch);
              filmotekaApi.fetchSearchFilmWithGenres().then(appendResultsMarkup).catch(err => {
                  refs.containerList.innerHTML = `<img class="catch-error-pagination" src="${errorUrl}"/>`
              });
-            
+             
          }
      })
-     evt.currentTarget.query.value = '';
+      evt.currentTarget.query.value = '';
    
 }
 

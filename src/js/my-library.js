@@ -5,6 +5,8 @@ import {
   getQueueByUserId,
 } from './api-service/firebase-api-database';
 import filmsCardTpl from '../templates/card-films.hbs';
+import openModal from './modal-info/modalInfoFilm'
+import closeModal from './closeModal'
 
 const currentUrl = window.location.href;
 
