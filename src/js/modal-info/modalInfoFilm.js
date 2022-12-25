@@ -1,6 +1,5 @@
 import FilmotekaApi from '../api-service/filmoteka-api';
 import { modalInfoCreat } from './modal-creat-element';
-import { trailer } from './youtubePlayer';
 
 const infoFilmApi = new FilmotekaApi();
 let ID_FILMS = '';
@@ -19,12 +18,11 @@ const langTrailer = {
   en: 'en-US',
 };
 
-// let URL_IMG_POSTER = 'https://image.tmdb.org/t/p/'a
 async function modalFunction(id) {
   await infoFilmApi.fetchInfoFilm(id).then(creatRender);
 }
 // openModal()
- async function openModal(e) {
+async function openModal(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
   }
@@ -34,8 +32,6 @@ async function modalFunction(id) {
 
   ID_FILMS = e.target.dataset.id;
   modalFunction(ID_FILMS);
-
-  // console.log(e.target);
 }
 
 async function creatRender(e) {
@@ -58,6 +54,5 @@ async function creatTrailerFilm(id) {
   });
 
   const dataUa = dataLang.find(e => e[0].iso_639_1 === 'uk');
-  console.log(dataUa);
   return dataUa ? dataUa[0].key : dataLang[0][0].key;
 }
