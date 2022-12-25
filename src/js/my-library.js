@@ -1,4 +1,3 @@
-import './pagination';
 import { currentUser, signOutUser } from './api-service/firebase-api-auth';
 import {
   getWatchedByUserId,

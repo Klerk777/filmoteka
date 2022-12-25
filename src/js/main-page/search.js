@@ -5,7 +5,6 @@ import filmsCardTpl from '../../templates/card-films.hbs';
 import { Loading } from 'notiflix';
 import { loadingSpiner } from './spiner';
 import Pagination from 'tui-pagination';
-import { query } from 'firebase/database';
 
 const refs = {
   searchForm: document.querySelector('.js-search-form'),
@@ -90,15 +89,13 @@ function clearHomePage() {
   refs.containerList.innerHTML = '';
 }
 
-console.dir(pagination);
-
 pagination.on('beforeMove', function (eventData) {
-  filmotekaApi.pageNum = Number.parseInt(eventData.page);
+  filmotekaApi.pageNum = eventData.page;
   paginationSearch();
 });
 
 pagination.on('afterMove', function (eventData) {
-  filmotekaApi.pageNum = Number.parseInt(eventData.page);
+  filmotekaApi.pageNum = eventData.page;
   paginationSearch();
 });
 
