@@ -22,7 +22,7 @@ export function modalInfoCreat(results, id, keyPlayer = false) {
   const player = !keyPlayer
     ? ''
     : `  <iframe
-  class="trailer"
+  class="modal__iframe"
 width="100%"
 height="175px"
 src="https://www.youtube.com/embed/${keyPlayer}?origin=${location}"
