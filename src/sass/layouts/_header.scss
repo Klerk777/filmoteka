@@ -3,8 +3,19 @@
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
-  min-height: 230px;
+  min-height: 190px;
   padding-top: 40px;
+  @include mq(tab) {
+    min-height: 176px;
+  
+    }
+}
+
+.header {
+  max-height: 230px;
+  @include mq(tab) {
+   max-height: 216px;
+  }
 }
 
 .menu {
@@ -161,9 +172,7 @@
     font-style: normal;
     @include fonts(500, 30, 35);
   }
-  .header__container {
-    min-height: 216px;
-  }
+  
 
   .header-bg {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
