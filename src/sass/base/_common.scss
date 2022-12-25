@@ -15,3 +15,9 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+.library-section {
+  margin: 20px 0 40px;
+  @include mq(mob) {
+    margin: 60px 0 60px;
+  }
+}
