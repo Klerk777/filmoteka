@@ -7,13 +7,20 @@ import {
   get,
   orderByChild,
 } from 'firebase/database';
+import { Notify } from 'notiflix';
 
 async function writeWatched(userId, film) {
   const db = getDatabase();
   push(ref(db, 'watched/'), {
     userId: userId,
     film: film,
-  });
+  })
+    .then(push => {
+      Notify.info('Film add watched list');
+    })
+    .catch(error => {
+      Notify.failure('OOPS');
+    });
 }
 
 async function writeQueue(userId, film) {
@@ -21,7 +28,13 @@ async function writeQueue(userId, film) {
   push(ref(db, 'queue/'), {
     userId: userId,
     film: film,
-  });
+  })
+    .then(push => {
+      Notify.info('Film add Queue list');
+    })
+    .catch(error => {
+      Notify.failure('OOPS');
+    });
 }
 
 async function getWatchedByUserId(userId) {
