@@ -7,14 +7,13 @@
   padding-top: 40px;
   @include mq(tab) {
     min-height: 176px;
-  
-    }
+  }
 }
 
 .header {
   max-height: 230px;
   @include mq(tab) {
-   max-height: 216px;
+    max-height: 216px;
   }
 }
 
@@ -39,6 +38,7 @@
 }
 
 .logo {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,20 +84,23 @@
 }
 
 .logo__name {
-  position: relative;
+  // position: relative;
   display: none;
 }
 
 .logo__santa {
-  display: block;
+  display: none;
   position: absolute;
-  left: 212px;
-  top: 33px;
+  left: 144px;
+  top: -5px;
   width: 30px;
   height: 30px;
   z-index: 999;
   background: url(../images/santa.png) no-repeat center center;
   background-size: contain;
+  @include mq(tab) {
+    display: block;
+  }
 }
 
 .search-form {
@@ -185,7 +188,6 @@
     font-style: normal;
     @include fonts(500, 30, 35);
   }
-  
 
   .header-bg {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
