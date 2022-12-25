@@ -4,3 +4,4 @@ import './js/main-page/search';
 import './js/main-page/spiner';
 import './js/closeModal';
 import './js/modal-info/modalInfoFilm';
+import './js/pagination';

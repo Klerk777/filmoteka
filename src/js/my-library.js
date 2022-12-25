@@ -1,4 +1,5 @@
-import { currentUser } from './api-service/firebase-api-auth';
+import './pagination';
+import { currentUser, signOutUser } from './api-service/firebase-api-auth';
 import {
   getWatchedByUserId,
   getQueueByUserId,
@@ -13,12 +14,15 @@ const refs = {
   btnWatched: document.querySelector('#btn__watched'),
   btnQueue: document.querySelector('#btn__queue'),
   containerList: document.querySelector('.js-card'),
+  logOut: document.querySelector('.js-log-out'),
+  nickname: document.querySelector('.js-nickname'),
 };
 
 status();
 
 refs.btnWatched.addEventListener('click', onWatched);
 refs.btnQueue.addEventListener('click', onQueue);
+refs.logOut.addEventListener('click', signOutUser);
 
 // if (currentUrl.includes('my-library')) {
 //   if (!getUid()) {
@@ -33,8 +37,14 @@ async function status() {
       window.location.href = './signin.html';
     }
 
+    setNickname(user);
+
     onWatched();
   }
+}
+
+function setNickname(user) {
+  refs.nickname.textContent = user.email;
 }
 
 async function onWatched() {
