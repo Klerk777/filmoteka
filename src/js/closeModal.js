@@ -13,8 +13,6 @@ const refs = {
   backdrop: document.querySelector('.backdrop'),
   closeBtn: document.querySelector('[data-modal-close]'),
   modalWrap: document.querySelector('.modal__wrap'),
-  btnWatched: document.querySelector('.js-btn-watched'),
-  btnQueue: document.querySelector('.js-btn-queue'),
 };
 
 refs.backdrop.addEventListener('click', onBackdropHandler);
