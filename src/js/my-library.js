@@ -1,8 +1,6 @@
+import './pagination';
 import { currentUser } from './api-service/firebase-api-auth';
-import {
-  getWatchedByUserId,
-  getQueueByUserId,
-} from './api-service/firebase-api-database';
+import { getWatchedByUserId, getQueueByUserId } from './api-service/firebase-api-database';
 import filmsCardTpl from '../templates/card-films.hbs';
 
 const currentUrl = window.location.href;

@@ -1,82 +1,73 @@
-
+.gallery-section {
+  margin: 10px 0 40px;
+  @include mq(mob) {
+    margin: 20px 0 60px;
+  }
+}
 
 .card__list {
-    padding-top: 20px;
-    padding-bottom: 40px;
-   
-
-    
-@include mq(small){
-    padding-bottom: 50px;
+  @include mq(small) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    
-    }
-   @include mq(tab){
+  }
+  @include mq(tab) {
     gap: 32px;
-   }
-   @include mq(tab-only){
+  }
+  @include mq(tab-only) {
     flex-basis: calc((100% - 32px) / 3);
-   }
-
-       
-}     
+  }
+}
 
 .card__item {
-    cursor: pointer;
-    transform: scaleX(1);
-    transition: transform 250ms linear;
+  cursor: pointer;
+  transform: scaleX(1);
+  transition: transform 250ms linear;
 
-@include mq(mob) {
+  @include mq(mob) {
     max-width: 280px;
     max-height: 443px;
-   
- }
-@include mq(tab) {
+  }
+  @include mq(tab) {
     max-width: 336px;
     max-height: 494px;
- }
- @include mq(desk){
+  }
+  @include mq(desk) {
     max-width: 396px;
     max-height: 634px;
- }
-
- }
+  }
+}
 
 .card__item:hover,
 .card__item:focus {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .card__item img {
-    margin-bottom: 10px;
-    border-radius: 5px;
-    height: 402px;
-    
-   @include mq(tab) {
-        height: 455px;
-    }
-    @include mq(desk){
-        height: 574px;
-    }
-       
- }
+  margin-bottom: 10px;
+  border-radius: 5px;
+  height: 402px;
+
+  @include mq(tab) {
+    height: 455px;
+  }
+  @include mq(desk) {
+    height: 574px;
+  }
+}
 
 .card__title,
 .card__text {
-    font-style: normal;
-    @include fonts(500, 12, 16);
-  
-
+  font-style: normal;
+  @include fonts(500, 12, 16);
 }
 
 .card__title {
-    text-transform: uppercase;
-    color: $blackColor;
+  text-transform: uppercase;
+  color: $blackColor;
 }
 
 .card__text {
-    color: $accentColor;
+  color: $accentColor;
 }
