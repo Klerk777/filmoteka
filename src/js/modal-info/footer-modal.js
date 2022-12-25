@@ -1,6 +1,5 @@
 const openModalBtn = document.querySelector('[data-modal-open]');
 const backdropFooter = document.querySelector('.backdrop__footer');
-console.log(backdropFooter);
 const closeModalBtn = document.querySelector('[data-modal-close-footer]');
 const modal = document.querySelector('[data-modal-footer]');
 window.addEventListener('keydown', closeFooterModalEsc);
