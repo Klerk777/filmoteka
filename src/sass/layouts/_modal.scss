@@ -71,6 +71,7 @@
   border-radius: 5px;
   width: 240px;
   height: 357px;
+  object-fit: cover;
   pointer-events: none; //disable global efect hover pictures in modal windows
 
   @include mq(tab) {
