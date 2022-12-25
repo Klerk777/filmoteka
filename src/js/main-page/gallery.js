@@ -7,9 +7,10 @@ const refs = {
    containerList: document.querySelector('.js-card'),
 }
 const filmotekaApi = new FilmotekaApi();
-renderHomepage();
+// renderHomepage();
 
 export function renderHomepage() {
+  filmotekaApi.resetPage();
   filmotekaApi.fetchInTrendFilmWithGenres().then(appendResultsMarkup);
   
    
