@@ -176,7 +176,6 @@
         url(../images/header/tablet/abstract-background-1@2x.jpg);
     }
   }
-
   .search-form {
     width: 336px;
     margin-right: auto;
@@ -247,3 +246,60 @@
   top: 36px;
   left: 5px;
 }
+
+.header-bg-lib{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/header/mobile/Library-header-1-mob.jpg);
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@include mq(retina) {
+  .header-bg-lib {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/mobile/Library-header-1@2x-mob.jpg);
+  }
+}
+@include mq(tab){
+.header-bg-lib {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/header/tablet/Library-header-1-tab.jpg);
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}}
+
+@include mq(retina) {
+  .header-bg-lib {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/tablet/Library-header-1@2x-tab.jpg);
+  }
+}
+@include mq(desk) {
+  .header-bg-lib {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/desktop/Library-header-1-desc.jpg);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @include mq(retina) {
+    .header-bg-lib {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/header/desktop/Library-header-1@2x-desc.jpg);
+    }
+  }
+
+  .search-form {
+    width: 394px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+
