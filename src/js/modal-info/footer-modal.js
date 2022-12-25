@@ -1,6 +1,6 @@
 const openModalBtn = document.querySelector('[data-modal-open]');
-const closeModalBtn = document.querySelector('[data-modal-close]');
-const modal = document.querySelector('[data-modal]');
+const closeModalBtn = document.querySelector('[data-modal-close-footer]');
+const modal = document.querySelector('[data-modal-footer]');
 window.addEventListener('keydown', closeFooterModalEsc);
 
 openModalBtn.addEventListener('click', toggleModal);
