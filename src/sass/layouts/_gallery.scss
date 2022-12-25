@@ -1,7 +1,9 @@
 .gallery-section {
-  margin: 10px 0 40px;
-  @include mq(mob) {
-    margin: 20px 0 60px;
+  padding: 10px 0 40px;
+  // margin: 10px 0 40px;
+  @include mq(tab) {
+    // margin: 20px 0 60px;
+    padding: 20px 0 60px;
   }
 }
 
@@ -17,6 +19,10 @@
   }
   @include mq(tab-only) {
     flex-basis: calc((100% - 32px) / 3);
+  }
+  @include mq(desk) {
+    gap: 32px 16px;
+    flex-basis: calc((100 - 32) / 3);
   }
 }
 
