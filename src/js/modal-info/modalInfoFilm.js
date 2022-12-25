@@ -19,7 +19,6 @@ slideTrack.addEventListener('click', openModal);
 modalJsCard.addEventListener('click', openModal);
 
 const e = document.getElementsByClassName('slide-track');
-console.log(e);
 
 const langTrailer = {
   ua: 'uk-UA',
