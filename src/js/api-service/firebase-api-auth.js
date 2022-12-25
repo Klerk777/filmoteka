@@ -8,6 +8,7 @@ import {
   browserSessionPersistence,
   onAuthStateChanged,
 } from 'firebase/auth';
+import { Notify } from 'notiflix';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyC_ZqRh92a1imNlrZFI2VN7cIY_kE_5IEk',
@@ -69,4 +70,15 @@ async function currentUser() {
   return user;
 }
 
-export { signIn, createNewUser, signOut, currentUser };
+function signOutUser() {
+  signOut(auth)
+    .then(() => {
+      Notify.success('Logout success');
+      window.location.href = './index.html';
+    })
+    .catch(error => {
+      Notify.success('Logout error');
+    });
+}
+
+export { signIn, createNewUser, signOutUser, currentUser };

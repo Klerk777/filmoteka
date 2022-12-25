@@ -1,6 +1,9 @@
 import './pagination';
-import { currentUser } from './api-service/firebase-api-auth';
-import { getWatchedByUserId, getQueueByUserId } from './api-service/firebase-api-database';
+import { currentUser, signOutUser } from './api-service/firebase-api-auth';
+import {
+  getWatchedByUserId,
+  getQueueByUserId,
+} from './api-service/firebase-api-database';
 import filmsCardTpl from '../templates/card-films.hbs';
 
 const currentUrl = window.location.href;
@@ -11,12 +14,15 @@ const refs = {
   btnWatched: document.querySelector('#btn__watched'),
   btnQueue: document.querySelector('#btn__queue'),
   containerList: document.querySelector('.js-card'),
+  logOut: document.querySelector('.js-log-out'),
+  nickname: document.querySelector('.js-nickname'),
 };
 
 status();
 
 refs.btnWatched.addEventListener('click', onWatched);
 refs.btnQueue.addEventListener('click', onQueue);
+refs.logOut.addEventListener('click', signOutUser);
 
 // if (currentUrl.includes('my-library')) {
 //   if (!getUid()) {
@@ -31,8 +37,14 @@ async function status() {
       window.location.href = './signin.html';
     }
 
+    setNickname(user);
+
     onWatched();
   }
+}
+
+function setNickname(user) {
+  refs.nickname.textContent = user.email;
 }
 
 async function onWatched() {
