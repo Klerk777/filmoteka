@@ -27,20 +27,24 @@
 }
 
 .card__item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   cursor: pointer;
   transform: scaleX(1);
   transition: transform 250ms linear;
+  gap: 10px;
 
-  @include mq(mob) {
-    max-width: 280px;
+  @include mq(small) {
+    max-width: 268px;
     max-height: 443px;
   }
   @include mq(tab) {
-    max-width: 336px;
+    max-width: 304px;
     max-height: 494px;
   }
   @include mq(desk) {
-    max-width: 396px;
+    max-width: 383px;
     max-height: 634px;
   }
 }
@@ -51,7 +55,7 @@
 }
 
 .card__item img {
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
   border-radius: 5px;
   height: 402px;
 
@@ -76,4 +80,7 @@
 
 .card__text {
   color: $accentColor;
+}
+.card_information {
+  flex-grow: 1;
 }
