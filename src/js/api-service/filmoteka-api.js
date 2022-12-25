@@ -30,7 +30,9 @@ export default class FilmotekaApi {
         return data.map(movie => ({
           ...movie,
           release_date: movie.release_date.split('-')[0],
-          genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
+          genres: movie.genre_ids
+            .map(id => genresList.filter(el => el.id === id))
+            .flat(),
         }));
       });
     });
@@ -42,7 +44,9 @@ export default class FilmotekaApi {
         return data.map(movie => ({
           ...movie,
           release_date: movie.release_date.split('-')[0],
-          genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
+          genres: movie.genre_ids
+            .map(id => genresList.filter(el => el.id === id))
+            .flat(),
         }));
       });
     });
@@ -57,7 +61,7 @@ export default class FilmotekaApi {
     const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${this.searchQuery}&page=${this.page}&include_adult=false`;
     return this.globalFetch(url);
   }
-   fetchSearchTotalFilm() {
+  fetchSearchTotalFilm() {
     const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${this.searchQuery}&page=${this.page}&include_adult=false`;
     return fetch(url)
       .then(response => response.json())
@@ -74,28 +78,24 @@ export default class FilmotekaApi {
   // }
 
   fetchInfoFilm(movie_id) {
-
     const url = ` https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=en-US`;
     return fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            return data;
-            // console.log(data);
-        })
-}
-
-
-fetchTrailreFilm(movie_id, lang) {
-  const url = ` https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${API_KEY}&language=${lang}`;
-  return fetch(url)
       .then(response => response.json())
       .then(data => {
-          return data;
-          // console.log(data);
-      })
-}
+        return data;
+        // console.log(data);
+      });
+  }
 
-
+  fetchTrailreFilm(movie_id, lang) {
+    const url = ` https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${API_KEY}&language=${lang}`;
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        return data;
+        // console.log(data);
+      });
+  }
 
   incrementPage() {
     this.page += 1;
