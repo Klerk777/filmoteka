@@ -16,7 +16,10 @@
 .menu__list {
   display: flex;
   align-items: center;
-  gap: 39px;
+  gap: 20px;
+  @include mq(mob) {
+    gap: 39px;
+  }
 }
 
 .menu__link {
