@@ -1,13 +1,28 @@
 @font-face {
   font-family: 'Roboto', sans-serif;
-  src: url(../fonts/Roboto-Medium.ttf) format('truetype');
+  src: url('../fonts/Roboto-Medium.ttf') format('truetype');
   font-style: normal;
   font-weight: 500;
 }
 
 @font-face {
   font-family: 'Roboto', sans-serif;
-  src: url(../fonts/Roboto-Regular.ttf) format('truetype');
+  src: url('../fonts/Roboto-Regular.ttf') format('truetype');
   font-style: normal;
   font-weight: 400;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.library-section {
+  margin: 20px 0 40px;
+  @include mq(mob) {
+    margin: 60px 0 60px;
+  }
 }

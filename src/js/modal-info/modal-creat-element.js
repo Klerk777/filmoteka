@@ -1,4 +1,4 @@
-export function modalInfoCreat(results, id) {
+export function modalInfoCreat(results, id, keyPlayer = false) {
   let URL_POSTEER = 'https://image.tmdb.org/t/p/';
   const imgResize = {
     tabMob: 'w342',
@@ -15,6 +15,21 @@ export function modalInfoCreat(results, id) {
     overview,
     poster_path,
   } = results;
+
+  const location = window.location.host;
+  console.log(location);
+
+  const player = !keyPlayer
+    ? ''
+    : `  <iframe
+  class="trailer"
+width="100%"
+height="175px"
+src="https://www.youtube.com/embed/${keyPlayer}?origin=${location}"
+title="GO-IT  #4"
+frameborder="0"
+allowfullscreen
+></iframe> `;
 
   return `<picture>
   <source src="${
@@ -56,26 +71,13 @@ export function modalInfoCreat(results, id) {
   <p class="modal__about">About</p>
   <p class="modal__description">${overview}</p>
   
-  <div id="player" class="player">
-  <iframe
-  class="trailer"
-width="350"
-height="175"
-src="https://www.youtube.com/embed/LgZ2MDuJvhc?autoplay=1"
-title="YouTube video player"
-frameborder="0"
-allowfullscreen
-></iframe>
+  <div id="player" class="modal__player">
+${player}
   </div>
   
   <ul class="modal__buttons">
-            <li><button class="modal__button" data-id="${id}">Add to watched</button></li>
-            <li><button class="modal__button" data-id="${id}">Add to queue</button></li>
+            <li><button type="button" class="modal__button js-btn-watched" data-id="${id}">Add to watched</button></li>
+            <li><button type="button" class="modal__button js-btn-queue" data-id="${id}">Add to queue</button></li>
           </ul>
   `;
-  // loadPlayer();
-  // window.onYouTubePlayerAPIReady = function () {
-  //   onYouTubeIframeAPIReady();
-
-  //           };
 }
