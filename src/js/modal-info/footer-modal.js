@@ -1,15 +1,26 @@
 const openModalBtn = document.querySelector('[data-modal-open]');
+const backdropFooter = document.querySelector('.backdrop__footer');
+console.log(backdropFooter);
 const closeModalBtn = document.querySelector('[data-modal-close-footer]');
 const modal = document.querySelector('[data-modal-footer]');
 window.addEventListener('keydown', closeFooterModalEsc);
+const bodyFooter = document.querySelector('body');
 
-openModalBtn.addEventListener('click', toggleModal);
-closeModalBtn.addEventListener('click', toggleModal);
+openModalBtn.addEventListener('click', onFooterModal);
+closeModalBtn.addEventListener('click', closeFooterModal);
 
-function toggleModal() {
-  modal.classList.toggle('is-hidden');
+function onFooterModal(e) {
+  backdropFooter.classList.remove('is-hidden');
+  bodyFooter.style.overflow = 'hidden';
+}
+
+function closeFooterModal(e) {
+  backdropFooter.classList.add('is-hidden');
+  bodyFooter.style.overflow = 'visible';
 }
 
 function closeFooterModalEsc(e) {
-  if (e.code === 'Escape') toggleModal();
+  if (e.code === 'Escape') {
+    closeFooterModal();
+  }
 }
