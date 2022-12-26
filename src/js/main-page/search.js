@@ -71,6 +71,10 @@ function onSearch(evt) {
       renderHomepage();
       refs.containerWarningResults.textContent = `Sorry, there no results found. Try searching for something else! `;
     } else {
+      pagination.setTotalItems(data.total_pages);
+      pagination.setItemsPerPage(Math.ceil(data.total_pages / 20));
+      pagination.reset();
+
       refs.containerWarningResults.textContent = '';
       filmotekaApi
         .fetchSearchFilmWithGenres()
