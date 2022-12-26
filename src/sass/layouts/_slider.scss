@@ -38,8 +38,8 @@
 }
 .slide-track {
   display: flex;
-  width: calc(250px * 100);
-  animation: scroll 3s linear infinite;
+  width: calc(250px * 50);
+  animation: scroll 10s linear infinite;
 }
 
 @keyframes scroll {
@@ -48,7 +48,7 @@
   }
 
   100% {
-    transform: translateX(calc(-250px * 2));
+    transform: translateX(calc(-150px * 30));
   }
 }
 

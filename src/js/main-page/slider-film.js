@@ -14,8 +14,8 @@ export async function renderTrendy() {
   try {
     for (let page = 1; page <= 5; page++) {
       filmotekaApi.fetchTrendFilm().then(renderSliderFilms);
+      filmotekaApi.incrementPage();
     }
-
     Loading.remove();
   } catch (error) {
     refs.sliderContainer.innerHTML = `<img class="catch-error-pagination" src="${errorUrl}" />`;
