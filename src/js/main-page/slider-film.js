@@ -7,7 +7,6 @@ const refs = {
   sliderContainer: document.querySelector('.slide-track'),
 };
 const filmotekaApi = new FilmotekaApi();
-renderTrendy();
 
 export function renderTrendy() {
   loadingSpiner();
@@ -20,9 +19,6 @@ export function renderTrendy() {
   Loading.remove();
 }
 
-
-
 function renderSliderFilms(articles) {
   refs.sliderContainer.innerHTML = filmsCardSliderTpl(articles);
- 
 }
