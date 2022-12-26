@@ -123,6 +123,10 @@
 .tui-pagination .tui-next-is-ellip {
   padding: 0;
   line-height: 1;
+  display: none;
+  @include mq(mob) {
+    display: inline-block;
+  }
 }
 
 .tui-pagination .tui-prev {
