@@ -8,7 +8,7 @@ const bodyFooter = document.querySelector('body');
 openModalBtn.addEventListener('click', onFooterModal);
 closeModalBtn.addEventListener('click', closeFooterModal);
 
-function onFooterModal(e) {
+ function onFooterModal(e) {
   backdropFooter.classList.remove('is-hidden');
   bodyFooter.style.overflow = 'hidden';
 }
