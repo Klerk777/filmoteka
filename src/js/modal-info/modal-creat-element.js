@@ -32,13 +32,13 @@ allowfullscreen
 ></iframe> `;
 
   return `<picture>
-  <source src="${
+  <source srcset="${
     URL_POSTEER + imgResize.desk + poster_path
   }" media="(min-width: 1280px)" />
-  <source src="${
+  <source srcset="${
     URL_POSTEER + imgResize.tabMob + poster_path
   }" media="(min-width: 768px)" />
-  <source src="${
+  <source srcset="${
     URL_POSTEER + imgResize.tabMob + poster_path
   }" media="(max-width: 767px)" />
   <img class="modal__picture" 
