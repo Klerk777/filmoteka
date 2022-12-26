@@ -1,8 +1,6 @@
 .gallery-section {
   padding: 10px 0 40px;
-  // margin: 10px 0 40px;
   @include mq(tab) {
-    // margin: 20px 0 60px;
     padding: 20px 0 60px;
   }
 }
@@ -36,15 +34,15 @@
   gap: 10px;
 
   @include mq(small) {
-    max-width: 268px;
+    min-width: 280px;
     max-height: 443px;
   }
   @include mq(tab) {
-    max-width: 304px;
+    max-width: 336px;
     max-height: 494px;
   }
   @include mq(desk) {
-    max-width: 383px;
+    max-width: 395px;
     max-height: 634px;
   }
 }
@@ -67,20 +65,27 @@
   }
 }
 
-.card__title,
-.card__text {
-  font-style: normal;
-  @include fonts(500, 12, 16);
-}
 
 .card__title {
-  text-transform: uppercase;
   color: $blackColor;
+  @include fonts(500, 12, 14, false, uppercase);
+
+  @include mq(tab) {
+    line-height: 16px;
+  }
 }
 
 .card__text {
   color: $accentColor;
+  @include fonts(500, 12, 16);
+
+
 }
+
 .card_information {
   flex-grow: 1;
+
+  @include mq(desk) {
+    @include fonts(500, 20, 24);
+  }
 }
