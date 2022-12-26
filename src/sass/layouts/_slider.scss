@@ -27,15 +27,18 @@
   width: 15%;
   z-index: 2;
 }
+
 .slider-list::before {
   left: 0;
   top: 0;
 }
+
 .slider-list::after {
   right: 0;
   top: 0;
   transform: rotateZ(180deg);
 }
+
 .slide-track {
   display: flex;
   width: calc(250px * 20);
