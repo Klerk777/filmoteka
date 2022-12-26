@@ -1,5 +1,6 @@
 import FilmotekaApi from '../api-service/filmoteka-api';
 import { modalInfoCreat } from './modal-creat-element';
+import { Notify } from 'notiflix';
 
 const infoFilmApi = new FilmotekaApi();
 let ID_FILMS = '';
@@ -7,7 +8,6 @@ let ID_FILMS = '';
 const backdrop = document.querySelector('.backdrop');
 const modalWrap = document.querySelector('.modal__wrap');
 const modalJsCard = document.querySelector('.card__list');
-const trailerWrap = document.querySelector('.player');
 
 let slideTrack = '';
 document.querySelector('.slide-track')
@@ -18,7 +18,6 @@ slideTrack.addEventListener('click', openModal);
 modalJsCard.addEventListener('click', openModal);
 
 const e = document.getElementsByClassName('slide-track');
-console.log(e);
 
 const langTrailer = {
   ua: 'uk-UA',
@@ -26,9 +25,16 @@ const langTrailer = {
 };
 
 async function modalFunction(id) {
-  await infoFilmApi.fetchInfoFilm(id).then(creatRender);
+  await infoFilmApi
+    .fetchInfoFilm(id)
+    .then(creatRender)
+    .catch(error =>
+      Notify.failure('An error occurred. Try again!', {
+        position: 'center-center',
+      })
+    );
 }
-// openModal()
+
 async function openModal(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
@@ -50,7 +56,18 @@ async function creatRender(e) {
 async function creatTrailerFilm(id) {
   const enTrailerUa = infoFilmApi.fetchTrailreFilm(id, langTrailer.ua);
   const enTrailerEn = infoFilmApi.fetchTrailreFilm(id, langTrailer.en);
-  const dataTrailerLang = await Promise.all([enTrailerUa, enTrailerEn]);
+  const dataTrailerLang = await Promise.all([
+    enTrailerUa.catch(e =>
+      Notify.failure('Error loading trailer. Please try again', {
+        position: 'center-center',
+      })
+    ),
+    enTrailerEn.catch(e =>
+      Notify.failure('Error loading trailer. Please try again', {
+        position: 'center-center',
+      })
+    ),
+  ]);
   const spaceArray = dataTrailerLang.map(e => e.results).join('').length;
 
   if (!spaceArray) return;

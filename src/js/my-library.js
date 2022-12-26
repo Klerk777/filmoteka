@@ -1,10 +1,11 @@
-import './pagination';
 import { currentUser, signOutUser } from './api-service/firebase-api-auth';
 import {
   getWatchedByUserId,
   getQueueByUserId,
 } from './api-service/firebase-api-database';
 import filmsCardTpl from '../templates/card-films.hbs';
+
+//open/close modal window NO DELETE!!
 import openModal from './modal-info/modalInfoFilm'
 import closeModal from './closeModal'
 

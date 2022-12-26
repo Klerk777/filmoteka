@@ -22,7 +22,7 @@ export function modalInfoCreat(results, id, keyPlayer = false) {
   const player = !keyPlayer
     ? ''
     : `  <iframe
-  class="trailer"
+  class="modal__iframe"
 width="100%"
 height="175px"
 src="https://www.youtube.com/embed/${keyPlayer}?origin=${location}"
@@ -41,9 +41,9 @@ allowfullscreen
   <source src="${
     URL_POSTEER + imgResize.tabMob + poster_path
   }" media="(max-width: 767px)" />
-  <img class="modal__picture" src="${
-    URL_POSTEER + imgResize.desk + poster_path
-  }" alt="${title}" />
+  <img class="modal__picture" 
+   onerror="this.onerror=null;this.src='https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-';"
+    src="${URL_POSTEER + imgResize.desk + poster_path}" alt="${title}" />
   </picture>
   <div class="modal__info">
   <h2 class="modal__title">${title}</h2>
