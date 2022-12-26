@@ -30,9 +30,7 @@ export default class FilmotekaApi {
         return data.map(movie => ({
           ...movie,
           release_date: movie.release_date.split('-')[0],
-          genres: movie.genre_ids
-            .map(id => genresList.filter(el => el.id === id))
-            .flat(),
+          genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
         }));
       });
     });
@@ -44,17 +42,16 @@ export default class FilmotekaApi {
         return data.map(movie => ({
           ...movie,
           release_date: movie.release_date.split('-')[0],
-          genres: movie.genre_ids
-            .map(id => genresList.filter(el => el.id === id))
-            .flat(),
+          genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
         }));
       });
     });
   }
 
   fetchTrendFilm() {
-    const url = `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${this.page}`;
-    return this.globalFetch(url);
+    const url = `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&language=en-US&page=${this.page}`;
+    console.log(this.globalFetch(url)); //FIXME:
+    return this.globalFetch(url); //data.result
   }
 
   fetchSearchFilm() {
@@ -71,19 +68,12 @@ export default class FilmotekaApi {
       });
   }
 
-  // fetchInfoFilm() {
-  //   const movie_id = 1031653;
-  //   const url = ` https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=en-US`;
-  //   return this.globalFetch(url);
-  // }
-
   fetchInfoFilm(movie_id) {
     const url = ` https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=en-US`;
     return fetch(url)
       .then(response => response.json())
       .then(data => {
         return data;
-        // console.log(data);
       });
   }
 
@@ -93,7 +83,6 @@ export default class FilmotekaApi {
       .then(response => response.json())
       .then(data => {
         return data;
-        // console.log(data);
       });
   }
 
