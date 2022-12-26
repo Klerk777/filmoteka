@@ -8,7 +8,6 @@ let ID_FILMS = '';
 const backdrop = document.querySelector('.backdrop');
 const modalWrap = document.querySelector('.modal__wrap');
 const modalJsCard = document.querySelector('.card__list');
-const trailerWrap = document.querySelector('.player');
 
 let slideTrack = '';
 document.querySelector('.slide-track')
@@ -29,7 +28,11 @@ async function modalFunction(id) {
   await infoFilmApi
     .fetchInfoFilm(id)
     .then(creatRender)
-    .catch(error => Notify.failure('An error occurred. Try again!',{position: 'center-center'}));
+    .catch(error =>
+      Notify.failure('An error occurred. Try again!', {
+        position: 'center-center',
+      })
+    );
 }
 
 async function openModal(e) {
@@ -55,10 +58,14 @@ async function creatTrailerFilm(id) {
   const enTrailerEn = infoFilmApi.fetchTrailreFilm(id, langTrailer.en);
   const dataTrailerLang = await Promise.all([
     enTrailerUa.catch(e =>
-      Notify.failure('Error loading trailer. Please try again',{position: 'center-center'})
+      Notify.failure('Error loading trailer. Please try again', {
+        position: 'center-center',
+      })
     ),
     enTrailerEn.catch(e =>
-      Notify.failure('Error loading trailer. Please try again',{position: 'center-center'})
+      Notify.failure('Error loading trailer. Please try again', {
+        position: 'center-center',
+      })
     ),
   ]);
   const spaceArray = dataTrailerLang.map(e => e.results).join('').length;

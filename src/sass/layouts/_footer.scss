@@ -20,7 +20,7 @@
   justify-content: center;
   gap: 10px;
 
-  @include mq(tab) {
+  @include mq(mob) {
     flex-wrap: nowrap;
     flex-direction: row;
     gap: 0px;

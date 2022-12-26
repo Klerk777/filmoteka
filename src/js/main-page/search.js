@@ -107,14 +107,14 @@ function paginationSearch() {
   window.scrollTo(0, 0);
   if (filmotekaApi.query === '') {
     filmotekaApi
-      .fetchTrendFilm()
+      .fetchInTrendFilmWithGenres()
       .then(appendResultsMarkup)
       .catch(err => {
         refs.containerList.innerHTML = `<img class="catch-error-pagination" src="}"/>`;
       });
   } else {
     filmotekaApi
-      .fetchSearchFilm()
+      .fetchSearchFilmWithGenres()
       .then(appendResultsMarkup)
       .catch(err => {
         refs.containerList.innerHTML = `<img class="catch-error-pagination" src="}"/>`;
