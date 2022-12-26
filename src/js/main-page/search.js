@@ -80,7 +80,7 @@ function onSearch(evt) {
         .fetchSearchFilmWithGenres()
         .then(appendResultsMarkup)
         .catch(err => {
-          refs.containerList.innerHTML = `<img class="catch-error-pagination" src="${errorUrl}"/>`;
+          refs.containerList.innerHTML = `<img class="catch-error-pagination" src="${errorUrl}" loading="lazy" />`;
         });
     }
   });
@@ -110,14 +110,14 @@ function paginationSearch() {
       .fetchInTrendFilmWithGenres()
       .then(appendResultsMarkup)
       .catch(err => {
-        refs.containerList.innerHTML = `<img class="catch-error-pagination" src="}"/>`;
+        refs.containerList.innerHTML = `<img class="catch-error-pagination" src="}" loading="lazy"/>`;
       });
   } else {
     filmotekaApi
       .fetchSearchFilmWithGenres()
       .then(appendResultsMarkup)
       .catch(err => {
-        refs.containerList.innerHTML = `<img class="catch-error-pagination" src="}"/>`;
+        refs.containerList.innerHTML = `<img class="catch-error-pagination" src="}" loading="lazy"/>`;
       });
   }
 }
