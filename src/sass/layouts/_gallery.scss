@@ -34,15 +34,15 @@
   gap: 10px;
 
   @include mq(small) {
-    min-width: 280px;
+    max-width: 268px;
     max-height: 443px;
   }
   @include mq(tab) {
-    max-width: 336px;
+    max-width: 304px;
     max-height: 494px;
   }
   @include mq(desk) {
-    max-width: 395px;
+    max-width: 383px;
     max-height: 634px;
   }
 }
@@ -73,19 +73,21 @@
   @include mq(tab) {
     line-height: 16px;
   }
+
+  @include mq(desk) {
+    @include fonts(500, 20, 24);
+  }
 }
 
 .card__text {
   color: $accentColor;
   @include fonts(500, 12, 16);
 
-
+  @include mq(desk) {
+    @include fonts(500, 20, 24);
+  }
 }
 
 .card_information {
   flex-grow: 1;
-
-  @include mq(desk) {
-    @include fonts(500, 20, 24);
-  }
 }
