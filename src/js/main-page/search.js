@@ -26,8 +26,7 @@ const options = {
   lastItemClassName: 'tui-last-child',
   template: {
     page: '<a href="#gallery-section-1" class="tui-page-btn">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
     moveButton:
       '<a href="#gallery-section-1" class="tui-page-btn tui-{{type}}">' +
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
@@ -92,11 +91,6 @@ function appendResultsMarkup(results) {
 function clearHomePage() {
   refs.containerList.innerHTML = '';
 }
-
-pagination.on('beforeMove', function (eventData) {
-  filmotekaApi.pageNum = eventData.page;
-  paginationSearch();
-});
 
 pagination.on('afterMove', function (eventData) {
   filmotekaApi.pageNum = eventData.page;
