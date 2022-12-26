@@ -25,16 +25,21 @@ const options = {
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
   template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    page: '<a href="#gallery-section-1" class="tui-page-btn">{{page}}</a>',
+    currentPage:
+      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
     moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}">' + '<span class="tui-ico-{{type}}">{{type}}</span>' + '</a>',
+      '<a href="#gallery-section-1" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</a>',
     disabledMoveButton:
       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</span>',
     moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' + '<span class="tui-ico-ellip">...</span>' + '</a>',
+      '<a href="#gallery-section-1" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>',
   },
 };
 
@@ -66,6 +71,10 @@ function onSearch(evt) {
       renderHomepage();
       refs.containerWarningResults.textContent = `Sorry, there no results found. Try searching for something else! `;
     } else {
+      pagination.setTotalItems(data.total_pages);
+      pagination.setItemsPerPage(Math.ceil(data.total_pages / 20));
+      pagination.reset();
+
       refs.containerWarningResults.textContent = '';
       filmotekaApi
         .fetchSearchFilmWithGenres()
@@ -95,6 +104,7 @@ pagination.on('afterMove', function (eventData) {
 });
 
 function paginationSearch() {
+  window.scrollTo(0, 0);
   if (filmotekaApi.query === '') {
     filmotekaApi
       .fetchInTrendFilmWithGenres()
