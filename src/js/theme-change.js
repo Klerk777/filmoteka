@@ -18,6 +18,8 @@ function setThemeFromLocalStorage() {
   if (localStorage.getItem(LOCALSTORAGE_THEME_KEY)) {
     bodyRef.classList.add('dark-theme');
     toggleRef.checked = true;
+  } else {
+    toggleRef.checked = false;
   }
 }
 setThemeFromLocalStorage();
