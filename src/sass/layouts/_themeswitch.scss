@@ -36,6 +36,10 @@ body.dark-theme {
   .slider-list::after {
     background: linear-gradient(to right, rgba(196, 192, 192, 0.39) 0%, rgba(255, 255, 255, 0) 90%);
   }
+  & .footer {
+    color: lightgrey;
+    background-color: #222;
+  }
 }
 
 .toolbar {
@@ -123,9 +127,4 @@ body.dark-theme {
 .theme-switch__toggle:focus + .theme-switch__track,
 .theme-switch__toggle:active + .theme-switch__track {
   box-shadow: 0 0 0 3px #ff6b08;
-}
-
-.dark-theme {
-  color: lightgrey;
-  background-color: #222;
 }
