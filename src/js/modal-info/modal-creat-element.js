@@ -43,7 +43,7 @@ allowfullscreen
   }" media="(max-width: 767px)" />
   <img class="modal__picture" 
    onerror="this.onerror=null;this.src='https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-';"
-    src="${URL_POSTEER + imgResize.desk + poster_path}" alt="${title}" />
+    src="${URL_POSTEER + imgResize.desk + poster_path}" alt="${title}" loading="lazy"/>
   </picture>
   <div class="modal__info">
   <h2 class="modal__title">${title}</h2>

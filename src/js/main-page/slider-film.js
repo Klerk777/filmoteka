@@ -15,7 +15,7 @@ export function renderTrendy() {
     .fetchTrendFilm()
     .then(renderSliderFilms)
     .catch(err => {
-      refs.sliderContainer.innerHTML = `<img class="catch-error-pagination" src="${errorUrl}" />`;
+      refs.sliderContainer.innerHTML = `<img class="catch-error-pagination" src="${errorUrl}" loading="lazy"/>`;
     });
   Loading.remove();
 }
