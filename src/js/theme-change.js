@@ -8,7 +8,7 @@ toggleRef.addEventListener('change', event => {
     localStorage.setItem(LOCALSTORAGE_THEME_KEY, 'dark-theme');
   } else {
     bodyRef.classList.remove('dark-theme');
-    localStorage.removeItem(LOCALSTORAGE_THEME_KEY, 'dark-theme');
+    localStorage.removeItem(LOCALSTORAGE_THEME_KEY);
   }
 });
 
@@ -17,6 +17,7 @@ export { bodyRef, toggleRef, footerDarktheme };
 function setThemeFromLocalStorage() {
   if (localStorage.getItem(LOCALSTORAGE_THEME_KEY)) {
     bodyRef.classList.add('dark-theme');
+    toggleRef.checked = true;
   }
 }
 setThemeFromLocalStorage();
