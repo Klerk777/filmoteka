@@ -1,15 +1,14 @@
 import { currentUser, signOutUser } from './api-service/firebase-api-auth';
-import {
-  getWatchedByUserId,
-  getQueueByUserId,
-} from './api-service/firebase-api-database';
+import { getWatchedByUserId, getQueueByUserId } from './api-service/firebase-api-database';
 import filmsCardTpl from '../templates/card-films.hbs';
+import { setThemeFromLocalStorage } from './theme-change';
 
 //open/close modal window NO DELETE!!
-import openModal from './modal-info/modalInfoFilm'
-import closeModal from './closeModal'
-import onFooterModal from './modal-info/footer-modal'
+import openModal from './modal-info/modalInfoFilm';
+import closeModal from './closeModal';
+import onFooterModal from './modal-info/footer-modal';
 
+setThemeFromLocalStorage();
 const currentUrl = window.location.href;
 
 let user = null;

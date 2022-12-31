@@ -40,6 +40,10 @@ body.dark-theme {
     color: lightgrey;
     background-color: #222;
   }
+  & .backdrop.is-open .modal {
+    color: lightgrey;
+    background-color: #222;
+  }
 }
 
 .toolbar {
