@@ -34,7 +34,11 @@ body.dark-theme {
   }
   & .slider-list::before,
   .slider-list::after {
-    background: linear-gradient(to right, rgba(196, 192, 192, 0.39) 0%, rgba(255, 255, 255, 0) 90%);
+    background: linear-gradient(
+      to right,
+      rgba(196, 192, 192, 0.39) 0%,
+      rgba(255, 255, 255, 0) 90%
+    );
   }
   & .footer {
     color: lightgrey;
@@ -43,6 +47,9 @@ body.dark-theme {
   & .backdrop.is-open .modal {
     color: lightgrey;
     background-color: #222;
+  }
+  & .backdrop.is-open .modal .modal__value--highlight {
+    color: #222;
   }
 }
 

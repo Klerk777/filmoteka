@@ -17,8 +17,6 @@ export function modalInfoCreat(results, id, keyPlayer = false) {
   } = results;
 
   const location = window.location.host;
-  console.log(location);
-
   const player = !keyPlayer
     ? ''
     : `  <iframe
@@ -43,7 +41,9 @@ allowfullscreen
   }" media="(max-width: 767px)" />
   <img class="modal__picture" 
    onerror="this.onerror=null;this.src='https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-';"
-    src="${URL_POSTEER + imgResize.desk + poster_path}" alt="${title}" loading="lazy"/>
+    src="${
+      URL_POSTEER + imgResize.desk + poster_path
+    }" alt="${title}" loading="lazy"/>
   </picture>
   <div class="modal__info">
   <h2 class="modal__title">${title}</h2>
@@ -51,12 +51,16 @@ allowfullscreen
   <tbody>
       <tr>
           <td class="modal__type">Vote / Votes</td>
-          <td class="modal__value"><span class="modal__value--accent">${vote_average}</span> / 
-              <span class="modal__value--highlight">${vote_count}</span></td>
+          <td class="modal__value"><span class="modal__value--accent">${vote_average.toFixed(
+            1
+          )}</span> / 
+              <span class="modal__value--highlight">${Math.round(
+                vote_count
+              )}</span></td>
       </tr>
       <tr>
           <td class="modal__type">Popularity</td>
-          <td class="modal__value">${popularity}</td>
+          <td class="modal__value">${Math.round(popularity)}</td>
       </tr>
       <tr>
           <td class="modal__type">Original Title</td>
